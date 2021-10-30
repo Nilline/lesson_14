@@ -71,7 +71,7 @@ body {
 /* -----Main-CSS------------------------------------------------------------------------------------------------------------------------------------------- */
 .button {
 	display: inline-flex;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: center;
 	font-size: 16px;
 	color: #000;
@@ -82,7 +82,7 @@ body {
 	border: 1px solid #000000;
 	position: relative;
 	box-shadow: 0px 0px 0px 0px #000 inset;
-	transition: box-shadow 0.8s ease 0s, color 0.8s ease 0s, border-color 0.8s ease 0s, color 0.8s ease 0s;
+	transition: box-shadow 0.3s ease 0s, color 0.3s ease 0s, border-color 0.3s ease 0s, color 0.3s ease 0s;
 }
 .button::after {
 	content: "";
@@ -93,7 +93,7 @@ body {
 	border-top: 1px solid #000;
 	border-right: 1px solid #000;
 	padding: 3px;
-	transition: border-color 0.6s ease 0.2s;
+	transition: border-color 0.3s ease 0s;
 }
 .button:hover {
 	box-shadow: 300px 0px 0px 0px #000 inset, 0px 0px 9px 0px #000;
@@ -102,8 +102,25 @@ body {
 .button:hover::after {
 	border-color: #fff;
 }
+.button_white {
+	border-color: #fff;
+	color: #fff;
+	padding: 17.5px 40px 17.5px 30px;
+	box-shadow: 0px 0px 0px 0px #fff inset;
+}
+.button_white::after {
+	border-color: #fff;
+}
+.button_white:hover {
+	border-color: #000;
+	box-shadow: 250px 0px 0px 0px #fff inset;
+	color: #000;
+}
+.button_white:hover::after {
+	border-color: #000;
+}
 .title {
-	font-size: 48px;
+	font-size: calc(32px + 16 * ((100vw - 320px) / (1920 - 320)));
 	line-height: 122.916%;
 	font-weight: 500;
 }
@@ -174,10 +191,12 @@ body {
 .page__about-company {
 }
 .page__portfolio {
-	padding: 90px 0px 0px 0px;
 }
 .page__offer {
-	padding: 90px 0;
+}
+.page__benefits {
+}
+.page__footer {
 }
 /* ======================================================================================================================================================== */
 .mainscreen {
@@ -250,7 +269,7 @@ body {
 	padding-left: calc(15px + 92 * ((100vw - 320px) / (1920 - 320)));
 }
 .company-about__title {
-	margin: 0px 0px 60px 0px;
+	margin: 0px 0px calc(20px + 40 * ((100vw - 320px) / (1920 - 320))) 0px;
 }
 .company-about__text {
 	line-height: 150%;
@@ -258,7 +277,7 @@ body {
 	color: #606060;
 }
 .company-about__text:not(:last-child) {
-	margin: 0px 0px 40px 0px;
+	margin: 0px 0px calc(15px + 25 * ((100vw - 320px) / (1920 - 320))) 0px;
 }
 .company-about__pagination {
 	position: absolute;
@@ -286,6 +305,7 @@ body {
 }
 /* ======================================================================================================================================================== */
 .portfolio {
+	padding: calc(30px + 60 * ((100vw - 320px) / (1920 - 320))) 0;
 }
 .portfolio__container {
 }
@@ -296,7 +316,7 @@ body {
 }
 .portfolio__title {
 	text-align: center;
-	margin: 0px 0px 70px 0px;
+	margin: 0px 0px calc(20px + 50 * ((100vw - 320px) / (1920 - 320))) 0px;
 }
 .portfolio__body {
 	position: relative;
@@ -322,6 +342,7 @@ body {
 /* ======================================================================================================================================================== */
 .offer {
 	background: #1a1f25;
+	padding: calc(30px + 60 * ((100vw - 320px) / (1920 - 320))) 0;
 }
 .offer__container {
 }
@@ -329,6 +350,7 @@ body {
 	text-align: center;
 	color: #fff;
 	margin: 0px 0px 80px 0px;
+	margin: 0px 0px calc(20px + 60 * ((100vw - 320px) / (1920 - 320))) 0px;
 }
 .offer__body {
 	overflow: hidden;
@@ -376,23 +398,12 @@ body {
 	text-align: center;
 }
 .offer__button {
-	/* padding: 17.5px 58px 17.5px 30px; */
-	padding: 17.5px 0;
 	width: 100%;
-	border-color: #fff;
-	color: #fff;
-	box-shadow: 0px 0px 0px 0px #fff inset;
 }
-.offer__button::after {
-	border-color: #fff;
-}
-.offer__button:hover {
-	border-color: #000;
-	box-shadow: 300px 0px 0px 0px #fff inset;
-	color: #000;
-}
-.offer__button:hover::after {
-	border-color: #000;
+@media (min-width: 1142px) {
+	.offer__title {
+		margin: 0px 0px calc(20px + 60 * ((100vw - 320px) / (1920 - 320))) 0px;
+	}
 }
 @media (max-width: 991.98px) {
 	.offer__column_empty {
@@ -446,11 +457,292 @@ body {
 	}
 }
 /* ======================================================================================================================================================== */
-
+.benefits {
+	background: url("../img/digital-flow/benefits/bg.jpg") center / cover no-repeat;
+	padding: 325px 0 198px;
+}
+.benefits__container {
+	max-width: 1142px;
+}
+.benefits__title {
+	margin: 0px 0px 90px 0px;
+}
+.benefits__row {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 -51px;
+	row-gap: 60px;
+}
+.benefits__column {
+	flex: 0 1 50%;
+	padding: 0 51px;
+}
+.benefits__content {
+	display: flex;
+}
+.benefits__image {
+	flex: 0 0 50px;
+	margin: 0px 20px 0px 0px;
+}
+.benefits__icon {
+	max-width: 100%;
+}
+.benefits__text {
+	line-height: 150%;
+	font-weight: 500;
+	color: #1a1f25;
+}
 /* ======================================================================================================================================================== */
-
+.page__request {
+}
+.request {
+	display: flex;
+	background-color: #000;
+	position: relative;
+	padding: 173px 15px;
+}
+.request__form-block {
+	flex: 0 1 50%;
+}
+.request__image,
+.request__img {
+	position: absolute;
+	width: 50%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+.request__image::before {
+	content: "";
+	background-color: rgba(0, 0, 0, 0.5);
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 2;
+}
+.request__img {
+	object-fit: cover;
+	width: 100%;
+}
+.request__container {
+	position: relative;
+	z-index: 2;
+	display: flex;
+	flex: 1 1 auto;
+}
+.request__form {
+}
+.form-request {
+	padding: 0px 73px 0px 0px;
+}
+.form-request__title {
+	color: #fff;
+	margin: 0px 0px 80px 0px;
+}
+.form-request__input {
+	color: #fff;
+	margin: 0px 0px 40px 0px;
+}
+.form-request__texarea {
+	color: #fff;
+	margin: 0px 0px 40px 0px;
+}
+.form-request__input::after,
+.form-request__texarea::after {
+	content: "";
+	width: 100%;
+	height: 1px;
+	background-color: #fff;
+	display: block;
+	margin: 40px 0px 0px 0px;
+}
+.form-request__texarea::after {
+	margin: 100px 0px 0px 0px;
+}
+.form-request__button {
+	padding: 17.5px 73px 17.5px 30px;
+}
+.request__suggestions {
+	flex: 0 1 50%;
+}
+.request__body {
+	padding: 0px 0px 0px 30px;
+}
+.body-suggestions {
+}
+.body-suggestions__title {
+	text-align: right;
+	color: #fff;
+	margin: 0px 0px 135px 0px;
+}
+.body-suggestions__row {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 -5px;
+	row-gap: 10px;
+}
+.body-suggestions__column {
+	flex: 0 1 33.333%;
+	overflow: hidden;
+	display: flex;
+	padding: 0 5px;
+}
+.body-suggestions__content {
+	position: relative;
+	border: 1px solid #fff;
+	background: #000;
+	padding: 60px 15px 30px;
+	display: flex;
+	flex-direction: column;
+	transition: border 0.3s ease 0s, background 0.3s ease 0s, box-shadow 0.3s ease 0s;
+}
+.body-suggestions__content::before {
+	content: "";
+	width: 78px;
+	height: 78px;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: #000;
+	border-radius: 50%;
+	border: inherit;
+	z-index: 2;
+}
+.body-suggestions__content:hover {
+	border-color: transparent;
+	background: #61b3c9;
+	box-shadow: 0px -200px 100px -50px #074d88 inset, 0px -500px 100px -50px #61b3c9 inset;
+}
+.body-suggestions__top {
+	margin: 0px 0px 43px 0px;
+	flex: 1 1 auto;
+}
+.body-suggestions__name {
+	font-size: 20px;
+	line-height: 120%;
+	font-weight: 500;
+	color: #fff;
+	margin: 0px 0px 15px 0px;
+}
+.body-suggestions__text {
+	line-height: 120%;
+	color: #e8e8e8;
+}
+.body-suggestions__old-price {
+	font-size: 14px;
+	line-height: 120%;
+	font-weight: 500;
+	color: #fff;
+	text-decoration: line-through;
+	margin: 0px 0px 5px 0px;
+}
+.body-suggestions__price {
+	font-size: 24px;
+	line-height: 120%;
+	font-weight: 500;
+	color: #fff;
+}
 /* ======================================================================================================================================================== */
-
+.footer-block {
+	background: #17181c;
+	padding: 103px 0;
+}
+.footer-block__container {
+}
+.footer-block__row {
+	display: flex;
+	margin: 0 -20px 45px;
+	padding: 0px 0px 45px 0px;
+	border-bottom: 1px solid #595959;
+}
+.footer-block__column {
+	flex: 0 1 25%;
+	flex-wrap: wrap;
+	padding: 0 20px;
+}
+.footer-block__content {
+}
+.footer-block__title {
+	font-size: 20px;
+	line-height: 120%;
+	font-weight: 500;
+	color: #fff;
+	margin: 0px 0px 33px 0px;
+}
+.footer-block__text {
+	line-height: 120%;
+	color: #e6e6e6;
+	margin: 0px 0px 20px 0px;
+}
+.footer-block__list {
+}
+.footer-block__item:not(:last-child) {
+	margin: 0px 0px 20px 0px;
+}
+.footer-block__link {
+	display: inline-flex;
+	line-height: 120%;
+	color: #e6e6e6;
+	transition: all 0.3s ease 0s;
+}
+.footer-block__link:hover {
+	color: #fff;
+	text-shadow: 0px 0px 1px #fff, 0px 0px 0px #fff, 0px 0px 0px #fff;
+}
+.footer-block__link_tel-icon::before,
+.footer-block__link_mail-icon::before,
+.footer-block__link_map-icon::before {
+	content: "";
+	width: 20px;
+	height: 20px;
+	margin: 0px 15px 0px 0px;
+}
+.footer-block__link_tel-icon::before {
+	background: url("../img/digital-flow/footer/icons/phone.svg") center / cover no-repeat;
+}
+.footer-block__link_mail-icon::before {
+	background: url("../img/digital-flow/footer/icons/mail.svg") center / cover no-repeat;
+}
+.footer-block__link_map-icon::before {
+	background: url("../img/digital-flow/footer/icons/map.svg") center / cover no-repeat;
+}
+.footer-block__bottom {
+}
+.bottom-footer {
+}
+.bottom-footer__body {
+	display: flex;
+	justify-content: space-between;
+}
+.bottom-footer__logo {
+	font-size: 24px;
+	line-height: 120%;
+	font-weight: 600;
+	color: #fff;
+}
+.bottom-footer__social {
+}
+.bottom-footer__social-link {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #fff;
+	width: 30px;
+	height: 30px;
+	border-radius: 5px;
+	padding: 5px;
+	transition: box-shadow 0.3s ease 0s, transform 0.1s ease 0s;
+}
+.bottom-footer__social-link:not(:last-child) {
+	margin: 0px 10px 0px 0px;
+}
+.bottom-footer__social-link:hover {
+	box-shadow: 0px 0px 8px #fff;
+	transform: scale(1.05);
+}
 /* ======================================================================================================================================================== */
 
 /* ====== FOOTER ========================================================================================================================================== */
