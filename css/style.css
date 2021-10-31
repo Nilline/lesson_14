@@ -859,6 +859,8 @@ body {
 	align-self: flex-end;
 	padding: 20px 0px 0px 0px;
 	flex: 0 1 411px;
+	position: relative;
+	z-index: 2;
 }
 .header-primise {
 }
@@ -877,6 +879,18 @@ body {
 }
 .top-our-impact__image-body {
 	flex: 1 1 auto;
+	position: relative;
+}
+.top-our-impact__decor {
+	position: absolute;
+	width: calc(100% + 140px);
+	height: calc(100% + 32px);
+	top: 0;
+	left: 0;
+	transform: translate(-70px, 0);
+}
+.top-our-impact__decor-img {
+	max-width: 100%;
 }
 .top-our-impact__image {
 	position: relative;
